@@ -5,9 +5,7 @@
         {
             $phrase = explode(' ', $phrase);
             foreach ($phrase as $index => $word) {
-                if ($word == $word_to_replace) {
-                    $phrase[$index] = $replace_with;
-                }
+                $phrase[$index] = str_replace($word_to_replace, $replace_with, $word);
             }
             $phrase = implode(' ', $phrase);
             return $phrase;
