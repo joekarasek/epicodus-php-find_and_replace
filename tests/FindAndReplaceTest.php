@@ -73,5 +73,80 @@
             // Assert
             $this->assertEquals('The hotdog in the hat laughed at the hotdog in the dress.', $result);
         }
+
+
+
+        function test_replaceAnyMatch_oneWordNoMatch()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'cat';
+            $word_to_replace = 'dog';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('cat', $result);
+        }
+        function test_replaceAnyMatch_oneWordMatch()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'cataract';
+            $word_to_replace = 'cat';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('hotdogaract', $result);
+        }
+        function test_replaceAnyMatch_sentenceNoMatch()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'The cat in the hat.';
+            $word_to_replace = 'dog';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('The cat in the hat.', $result);
+        }
+        function test_replaceAnyMatch_sentenceOneMatch()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'The cat in the hat.';
+            $word_to_replace = 'cat';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('The hotdog in the hat.', $result);
+        }
+        function test_replaceAnyMatch_sentenceMultipleMatch()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'The cat in the hat laughed at the catalogue.';
+            $word_to_replace = 'cat';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('The hotdog in the hat laughed at the hotdogalogue.', $result);
+        }
+
+
     }
 ?>
