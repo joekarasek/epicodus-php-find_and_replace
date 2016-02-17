@@ -94,6 +94,20 @@
         {
             // Arrange
             $test_FindAndReplace = new FindAndReplace;
+            $phrase = 'The cataract';
+            $word_to_replace = 'cat';
+            $replace_with = 'hotdog';
+
+            // Act
+            $result = $test_FindAndReplace->replaceAnyMatch($phrase, $word_to_replace, $replace_with);
+
+            // Assert
+            $this->assertEquals('The hotdogaract', $result);
+        }
+        function test_replaceAnyMatch_oneWordMatchFirstWord()
+        {
+            // Arrange
+            $test_FindAndReplace = new FindAndReplace;
             $phrase = 'cataract';
             $word_to_replace = 'cat';
             $replace_with = 'hotdog';
