@@ -19,7 +19,7 @@ _The goal of this project is to practice BDD with phpUnit, as well as use of the
 
 ## Known Bugs
 
-_No known bugs at this time._
+_The replace by word function can be thrown off by the presence of characters, such as a period._
 
 ## Support and contact details
 
